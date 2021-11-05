@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="style.css"></style>
+</head>
+<body>
+    <a href="index.html"><img src="img/paint.png" id="home"></a>
+    <h2>Daily</h2>
+
+    <!-- 하기 list 선택시 하위에 포함된 todolist 목록 읽어오기 -->
+<form name="Selector" class="selector">
+    <section class="category">
+        <button class="btn"><a href="./daily.html">Daily</a></button>
+        <button class="btn"><a href="./weekly.html">Weekly</a></button>
+        <button class="btn"><a href="./monthly.html">Monthly</a></button>
+        <button class="btn"><a href="./yearly.html">Yearly</a></button>
+        <button class="btn"><a href="./bucketlist.html">Bucket list</a></button>
+    </section>
+
+    <!-- create 시에 mode / specfic list 값을 lists 의 form 으로 함께 전송 -->
+ <fieldset class="chart">
+   <p><input type="text" id="title"placeholder="add your plan..">
+      <button id="add" value="add">add</button></p>
+        <input type="radio" class="choice" value="daily" id="choice-1" checked>
+        <label for="daily">D</label>
+        <input type="radio" class="choice" value="weekly" id="choice-2">
+        <label for="weekly">W</label>
+        <input type="radio" class="choice" value="monthly" id="choice-3">
+        <label for="monthly">M</label>
+        <input type="radio" class="choice" value="yearly" id="choice-4">
+        <label for="yearly">Y</label>
+        <input type="radio" class="choice" value="bucketlist" id="choice-5">
+        <label for="bucketlist">Bucket</label>
+</form>
+
+    <ul class="list">
+      <li class="todo">Going to the gym</li>
+    </ul>
+</fieldset>
+    <script>
+    window.onload = function() {
+
+        class todolist{
+            constructor(mode,title) {
+                 this.mode = mode;
+                 this.title = titlel;
+            }
+        }
+
+        let arr = [];
+        document.getElementById('add').onclick = function() {
+            let addMode = document.getElementsByClassName('choice');
+            let addTitle = document.getElementById('title');
+
+            let mode = addMode.value;
+            let title = addTitle.value;
+
+            arr.push(new todolist(mode,title));
+
+            addMode.value='';
+            addTitle.value='';
+        }
+        
+        document.getElementById('view').onclick=function() {
+            let yourPlan ='';
+            for(let i=0; i<todolist.length; i++) {
+                yourPlan += "<tr>";
+                yourPlan += "<td>"+todolist[i].mode+"<td>"
+                yourPlan += "<td>"+todolist[i].title+"<td>"
+                yourPlan += "</tr>";
+            } 
+            document.getElementById('result').innerHTML = result;
+        }
+
+        // document.getElementsById('send').onclick=function() {
+        //     let title = document.getElementsById('title');
+        //     let radio = document.getElementsByClassName('choice');
+        //     let mode ='';
+
+        //     for(let i=0; i<radio.length; i++) {
+        //         if(radio[i].checked == true) {
+        //             mode = radio[i].value;
+        //         }
+        //     } 
+        //     let arr =[];
+
+        //     let todolist = "<li> <label> - "+title.value+"</li>";
+
+        //     document.getElementsById('todolist').innerHTML = result;
+
+        //     title.value='';
+        //     radio.value='';
+        //     mode.value='';
+
+        //     for(let i=0; i<todolist.lenght; i++) {
+        //         todolist[i].checked=false;
+        //     }
+        // }
+    }
+    </script>
+</body>
+</html>
