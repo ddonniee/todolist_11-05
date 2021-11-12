@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include('layout/head.html')%>
+
+	<body>
+		<%-include('layout/body-form.html')%>
+		<ul class="todo-list">
+			<% for(let i = 0; i < list.length; i++) {%>
+				<li class="todo-item">
+					<input type="text" id="input-<%= list[i].id %>" value="<%= list[i].title %>">
+					<button onclick="MonthlyTodoUpdate('<%= list[i].id %>')">update</button>
+					<button onclick="MonthlyTodoDelete('<%= list[i].id %>')">delete</button>
+				</li>
+			<% } %>
+		</ul>
+	
+		<script src="javascripts/util.js"></script>
+	
+		<script>
+			function MonthlyTodoUpdate(id) {
+	
+				const foundInput = document.querySelector(`#input-${id}`)
+	
+				if(!foundInput) return
+	
+				const title = foundInput.value
+	
+				todoUpdate('monthly', id, title)
+	
+			}
+	
+			function MonthlyTodoDelete(id) {
+				todoDelete('monthly', id)
+			}
+	
+		</script>
+	</body>
+
+</html>
