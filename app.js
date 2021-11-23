@@ -1,3 +1,4 @@
+/* 은정 21.10.21 */
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -28,6 +29,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
 // router
+// page id 별로 연결될 router page 지정 by 은정 21.10.31
 app.use('/', indexRouter);
 app.use('/daily', dailyRouter);
 app.use('/weekly', weeklyRouter);

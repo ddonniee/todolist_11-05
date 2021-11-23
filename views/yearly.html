@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- layout에 있는 form 불러오기 by은정 21.10.15 -->
 <%-include('layout/head.html')%>
 
 	<body>
@@ -8,10 +9,11 @@
 
 		<ul class="todo-list">
 			<% for(let i = 0; i < list.length; i++) {%>
+				<!-- page에 따라 값이 바뀌는 id부분 ejs로 받아오기 by은정 21.10.28-->
 				<li class="todo-item">
 					<input type="text" id="input-<%= list[i].id %>" value="<%= list[i].title %>">
-					<button onclick="YearlyTodoUpdate('<%= list[i].id %>')">update</button>
-					<button onclick="YearlyTodoDelete('<%= list[i].id %>')">delete</button>
+					<button onclick="YearlyTodoUpdate('<%= list[i].id %>')" class="submit">update</button>
+					<button onclick="YearlyTodoDelete('<%= list[i].id %>')" class="submit">delete</button>
 				</li>
 			<% } %>
 		</ul>

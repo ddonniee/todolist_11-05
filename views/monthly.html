@@ -9,8 +9,8 @@
 			<% for(let i = 0; i < list.length; i++) {%>
 				<li class="todo-item">
 					<input type="text" id="input-<%= list[i].id %>" value="<%= list[i].title %>">
-					<button onclick="MonthlyTodoUpdate('<%= list[i].id %>')">update</button>
-					<button onclick="MonthlyTodoDelete('<%= list[i].id %>')">delete</button>
+					<button onclick="MonthlyTodoUpdate('<%= list[i].id %>')" class="submit">update</button>
+					<button onclick="MonthlyTodoDelete('<%= list[i].id %>')" class="submit">delete</button>
 				</li>
 			<% } %>
 		</ul>

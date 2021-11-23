@@ -9,6 +9,7 @@ function getTodoList(type) {
   }
 }
 
+// data.json file에 추가하기 by은정 21.10.18
 function todoAdd(type, title) {
 
   if (!db[type]) throw Error('INVALID_TYPE')

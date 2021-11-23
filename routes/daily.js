@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../data/data.json')
 const crudService = require('../service/crud.service');
 
 router.get('/', function (req, res, next) {
